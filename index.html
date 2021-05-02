@@ -1,0 +1,325 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Touchless Sanitizer</title>
+    <link rel="icon" href="./assets/Sanitizer-symbol.png" type="image/icon type">
+    <link rel="stylesheet" href="./tailwind.css">
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss/dist/tailwind.min.css" rel="stylesheet"> 
+
+		<style>
+			.carousel-open:checked + .carousel-item {
+				position: static;
+				opacity: 100;
+			}
+			.carousel-item {
+				-webkit-transition: opacity 0.6s ease-out;
+				transition: opacity 0.6s ease-out;
+			}
+			#carousel-1:checked ~ .control-1,
+			#carousel-2:checked ~ .control-2,
+			#carousel-3:checked ~ .control-3 {
+				display: block;
+			}
+			.carousel-indicators {
+				list-style: none;
+				margin: 0;
+				padding: 0;
+				position: absolute;
+				bottom: 2%;
+				left: 0;
+				right: 0;
+				text-align: center;
+				z-index: 10;
+			}
+			#carousel-1:checked ~ .control-1 ~ .carousel-indicators li:nth-child(1) .carousel-bullet,
+			#carousel-2:checked ~ .control-2 ~ .carousel-indicators li:nth-child(2) .carousel-bullet,
+			#carousel-3:checked ~ .control-3 ~ .carousel-indicators li:nth-child(3) .carousel-bullet {
+				color: #2b6cb0;  /*Set to match the Tailwind colour you want the active one to be */
+			}
+		</style>
+</head>
+<body>
+    <header class="text-gray-600 body-font">
+        <div class="container flex flex-col flex-wrap items-center p-5 mx-auto md:flex-row">
+            <a class="flex items-center mb-4 font-medium text-gray-900 title-font md:mb-0">
+                <img src="./assets/Sanitizer-symbol.png" alt="Logo" height="50px" width="50px" class="rounded-md" >
+                <span class="ml-3 text-xl">Touchless Sanitizer</span>
+            </a>
+            <nav
+                class="flex flex-wrap items-center justify-center text-base md:mr-auto md:ml-4 md:py-1 md:pl-4 md:border-l md:border-gray-400">
+            </nav>
+           <a href="https://github.com/sai-surya-rali/Arduino-Sanitizer-Dispenser"><button
+                class="inline-flex items-center px-3 py-1 mt-4 text-base bg-gray-100 border-0 rounded focus:outline-none hover:bg-gray-200 md:mt-0">Github Repo 
+            </button></a>
+            
+        </div>
+    </header>
+    <div class="relative bg-white shadow-2xl carousel">
+        <div class="relative w-full overflow-hidden carousel-inner">
+          <!--Slide 1-->
+            <input class="carousel-open" type="radio" id="carousel-1" name="carousel" aria-hidden="true" hidden="" checked="checked">
+            <div class="absolute opacity-0 carousel-item" style="height: 500px;;">
+                <img src="./assets/hand.jpg" style="width:100%">
+            </div>
+            <label for="carousel-3" class="absolute inset-y-0 left-0 z-10 hidden w-10 h-10 my-auto ml-2 text-3xl font-bold leading-tight text-center text-black bg-white rounded-full cursor-pointer prev control-1 md:ml-10 hover:text-white hover:bg-blue-700">‹</label>
+            <label for="carousel-2" class="absolute inset-y-0 right-0 z-10 hidden w-10 h-10 my-auto mr-2 text-3xl font-bold leading-tight text-center text-black bg-white rounded-full cursor-pointer next control-1 md:mr-10 hover:text-white hover:bg-blue-700">›</label>
+            
+            <!--Slide 2-->
+            <input class="carousel-open" type="radio" id="carousel-2" name="carousel" aria-hidden="true" hidden="">
+            <div class="absolute opacity-0 carousel-item" style="height: 500px;;">
+                <img src="./assets/2.jpeg" style="width:100%">
+            </div>
+            <label for="carousel-1" class="absolute inset-y-0 left-0 z-10 hidden w-10 h-10 my-auto ml-2 text-3xl font-bold leading-tight text-center text-black bg-white rounded-full cursor-pointer prev control-2 md:ml-10 hover:text-white hover:bg-blue-700">‹</label>
+            <label for="carousel-3" class="absolute inset-y-0 right-0 z-10 hidden w-10 h-10 my-auto mr-2 text-3xl font-bold leading-tight text-center text-black bg-white rounded-full cursor-pointer next control-2 md:mr-10 hover:text-white hover:bg-blue-700">›</label> 
+            
+            <!--Slide 3-->
+            <input class="carousel-open" type="radio" id="carousel-3" name="carousel" aria-hidden="true" hidden="">
+            <div class="absolute opacity-0 carousel-item" style="height: 500px;;">
+                <img src="./assets/Gear.jpg" style="width:100%">
+            </div>
+            <label for="carousel-2" class="absolute inset-y-0 left-0 z-10 hidden w-10 h-10 my-auto ml-2 text-3xl font-bold leading-tight text-center text-black bg-white rounded-full cursor-pointer prev control-3 md:ml-10 hover:text-white hover:bg-blue-700">‹</label>
+            <label for="carousel-1" class="absolute inset-y-0 right-0 z-10 hidden w-10 h-10 my-auto mr-2 text-3xl font-bold leading-tight text-center text-black bg-white rounded-full cursor-pointer next control-3 md:mr-10 hover:text-white hover:bg-blue-700">›</label>
+    
+            <!-- Add additional indicators for each slide-->
+            <ol class="carousel-indicators">
+                <li class="inline-block mr-3">
+                    <label for="carousel-1" class="block text-4xl text-white cursor-pointer carousel-bullet hover:text-blue-700">•</label>
+                </li>
+                <li class="inline-block mr-3">
+                    <label for="carousel-2" class="block text-4xl text-white cursor-pointer carousel-bullet hover:text-blue-700">•</label>
+                </li>
+                <li class="inline-block mr-3">
+                    <label for="carousel-3" class="block text-4xl text-white cursor-pointer carousel-bullet hover:text-blue-700">•</label>
+                </li>
+            </ol>
+            
+        </div>
+    </div>
+    <section class="text-gray-600 body-font">
+        <div class="container px-5 py-24 mx-auto">
+            <div class="flex flex-wrap -m-4">
+                <div class="p-4 lg:w-1/2">
+                    <div
+                        class="relative h-full px-8 pt-16 pb-24 overflow-hidden text-center bg-gray-100 bg-opacity-75 rounded-lg ">
+                        <h1 class="mb-3 text-xl font-medium text-gray-900 title-font sm:text-4xl">PROBLEM STATEMENT</h1>
+                        <br>
+                        <p class="mb-3 text-2xl font-medium leading-relaxed">Touchless Automatic Hand Sanitizer Dispenser using:</p>
+<br> 
+                        <ul class="text-xl font-bold">
+                            arduino uno
+                        </ul>
+                        <ul class="text-xl font-bold">
+                            ultrasonic sensor
+                        </ul>
+                        <ul class="text-xl font-bold">
+                            micro-servo
+                        </ul>
+                        <ul class="text-xl font-bold">
+                            jumper wires
+                        </ul>
+                        <ul class="text-xl font-bold">
+                            container
+                        </ul>
+                    </div>
+                </div>
+                <div class="p-4 lg:w-1/2">
+                    <div class="relative h-full px-8 pt-16 pb-24 overflow-hidden text-center bg-gray-100 bg-opacity-75 rounded-lg">
+                        <h1 class="mb-3 text-xl font-medium text-gray-900 title-font sm:text-4xl">OBJECTIVE</h1>
+                        <p class="mb-3 text-xl font-semibold leading-relaxed">Since the outbreak of COVID-19 hits the world dramatically, the use of hand sanitizers have escalated. Hand sanitisers can protect against disease-causing microbes.The main cause of COVID-19 spread is when virus-laden droplets from infected person get inhaled by other people. Recent studies show that we can also get this virus by touching surfaces or objects contaminated by the infected person and after that touching your face and nose can easily make you a target of it.This gives us a motivation to make a touchless automatic sanitizer dispenser.
+                        </p>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section class="text-gray-600 body-font">
+        <div class="container flex flex-wrap px-5 py-24 mx-auto">
+            <div class="flex flex-wrap w-full">
+                <div class="lg:w-2/5 md:w-1/2 md:pr-10 md:py-6">
+                    <div class="relative flex pb-12">
+                        <div class="absolute inset-0 flex items-center justify-center w-10 h-full">
+                            <div class="w-1 h-full bg-gray-200 pointer-events-none"></div>
+                        </div>
+                        <div
+                            class="z-10 inline-flex items-center justify-center flex-shrink-0 w-10 h-10 bg-indigo-500 rounded-full">
+                        </div>
+                        <div class="flex-grow pl-4">
+                            <h2 class="mb-1 text-sm font-medium tracking-wider text-gray-900 title-font">STEP 1</h2>
+                            <p class="leading-relaxed">First power the Ultrasonic sensor from Arduino.</p>
+                        </div>
+                    </div>
+                    <div class="relative flex pb-12">
+                        <div class="absolute inset-0 flex items-center justify-center w-10 h-full">
+                            <div class="w-1 h-full bg-gray-200 pointer-events-none"></div>
+                        </div>
+                        <div
+                            class="z-10 inline-flex items-center justify-center flex-shrink-0 w-10 h-10 bg-indigo-500 rounded-full">
+                        </div>
+                        <div class="flex-grow pl-4">
+                            <h2 class="mb-1 text-sm font-medium tracking-wider text-gray-900 title-font">STEP 2</h2>
+                            <p class="leading-relaxed">Then connect the Echo pin to Arduino’s PIN 2.</p>
+                        </div>
+                    </div>
+                    <div class="relative flex pb-12">
+                        <div class="absolute inset-0 flex items-center justify-center w-10 h-full">
+                            <div class="w-1 h-full bg-gray-200 pointer-events-none"></div>
+                        </div>
+                        <div
+                            class="z-10 inline-flex items-center justify-center flex-shrink-0 w-10 h-10 bg-indigo-500 rounded-full">
+                        </div>
+                        <div class="flex-grow pl-4">
+                            <h2 class="mb-1 text-sm font-medium tracking-wider text-gray-900 title-font">STEP 3</h2>
+                            <p class="leading-relaxed">Then connect the Trig Pin to Arduino’s PIN 3.</p>
+                        </div>
+                    </div>
+                    <div class="relative flex pb-12">
+                        <div class="absolute inset-0 flex items-center justify-center w-10 h-full">
+                            <div class="w-1 h-full bg-gray-200 pointer-events-none"></div>
+                        </div>
+                        <div
+                            class="z-10 inline-flex items-center justify-center flex-shrink-0 w-10 h-10 bg-indigo-500 rounded-full">
+                        </div>
+                        <div class="flex-grow pl-4">
+                            <h2 class="mb-1 text-sm font-medium tracking-wider text-gray-900 title-font">STEP 4</h2>
+                            <p class="leading-relaxed">Step 4: Now connect Water Pump +ve to 13th Arduino PIN &GND (If you are using water pump of high spec, then don’t directly connect it to the Arduino’s 13th PIN).</p>
+                        </div>
+                    </div>
+                    <div class="relative flex">
+                        <div
+                            class="z-10 inline-flex items-center justify-center flex-shrink-0 w-10 h-10 bg-indigo-500 rounded-full">
+                        </div>
+                        <div class="flex-grow pl-4">
+                            <h2 class="mb-1 text-sm font-medium tracking-wider text-gray-900 title-font">FINISH</h2>
+                            <p class="leading-relaxed">Step 4: Now connect Water Pump +ve to 13th Arduino PIN &GND (If you are using water pump of high spec, then don’t directly connect it to the Arduino’s 13th PIN).</p>
+                        </div>
+                    </div>
+                </div>
+
+                <iframe class="object-cover object-center mt-12 rounded-lg lg:w-3/5 md:w-1/2 md:mt-0" src="https://www.youtube.com/embed/ZasjmnMPjv4"
+                    alt="step">
+
+<!-- 
+                <div class="relative w-full h-0 max-w-full overflow-hidden" style="padding-bottom: 56.25%">
+		             <iframe src="https://www.youtube.com/embed/ZasjmnMPjv4" frameborder="0" allowfullscreen class="absolute top-0 left-0 w-full h-full" height="500" width="1200">
+                    </iframe>
+            	</div> -->
+            </div>
+        </div>
+    </section>
+
+    <section class="text-gray-600 body-font">
+        <div class="container px-5 py-24 mx-auto">
+            <p class="mb-4 text-2xl font-medium tracking-widest text-center text-gray-900 title-font">CODE</p>
+            <div class="w-full mx-auto text-center xl:w-1/2 lg:w-3/4">
+                <div class="mx-auto overflow-auto text-center text-black bg-gray-300 rounded-xl h-36" >
+                <p class="text-lg leading-relaxed break-words">#define echoPin 2 // attach pin D2 Arduino to pin Echo of HC-SR04 <br>
+                
+                #define trigPin 3 //attach pin D3 Arduino to pin Trig of HC-SR04<br>
+                // defines variables<br>
+                long duration; // variable for the duration of sound wave travel<br>
+                int distance; // variable for the distance measurement<br>
+                const int watrPump = 13;<br>
+                void setup() {<br>
+                Serial.begin(9600);<br>
+                pinMode(watrPump, OUTPUT);<br>
+                pinMode(trigPin, OUTPUT); // Sets the trigPin as an OUTPUT<br>
+                pinMode(echoPin, INPUT); // Sets the echoPin as an INPUT<br>
+                Serial.begin(9600); // // Serial Communication is starting with 9600 of baudrate speed<br>
+                Serial.println("Ultrasonic Sensor HC-SR04 Test"); // print some text in Serial Monitor<br>
+                Serial.println("with Arduino UNO R3");<br>
+                }<br>
+                void loop() {<br>
+                // Clears the trigPin condition<br>
+                digitalWrite(trigPin, LOW);<br>
+                delayMicroseconds(2);<br>
+                // Sets the trigPin HIGH (ACTIVE) for 10 microseconds <br>
+                digitalWrite(trigPin, HIGH);<br>
+                delayMicroseconds(10);<br>
+                digitalWrite(trigPin, LOW);<br>
+                // Reads the echoPin, returns the sound wave travel time in microseconds<br>
+                duration = pulseIn(echoPin, HIGH);<br>
+                // Calculating the distance<br>
+                distance = duration * 0.034 / 2; // Speed of sound wave divided by 2 (go and back)<br>
+                // Displays the distance on the Serial Monitor<br>
+                Serial.print("Distance: ");<br>
+                Serial.print(distance);<br>
+                Serial.println(" cm");<br>
+                if(distance <=7) //You can adjust the distance in cm { delay(300);//initial delay digitalWrite(watrPump, HIGH);//sets<br>
+                    the water pump high (ON) //delay(3000); // For setting the pump's delay for 3 sec } else digitalWrite(watrPump,<br>
+                    LOW); // To turn off the Water pump }</p> <br>
+                    </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="text-gray-600 body-font">
+        <div class="container px-5 py-24 mx-auto">
+            <div class="flex flex-col w-full mb-20 text-center">
+                <h1 class="mb-4 text-2xl font-medium tracking-widest text-center text-gray-900 title-font">OUR TEAM</h1>
+                <h2 class="mb-3 text-gray-500">Without teamwork, there is no way that the company is going to experience success. In teams, individuals will work together and accomplish a lot more that what they do by themselves.</h2>
+            </div>
+            <div class="flex flex-wrap -m-4">
+                <div class="p-4 lg:w-1/2">
+                    <div
+                        class="flex flex-col items-center justify-center h-full text-center sm:flex-row sm:justify-start sm:text-left">
+                        <img alt="team" class="flex-shrink-0 object-cover object-center w-48 h-48 mb-4 rounded-lg sm:mb-0"
+                            src="./assets/sai.jpg">
+                        <div class="flex-grow sm:pl-8">
+                            <h2 class="text-lg font-medium text-gray-900 title-font">SAI PRANAY</h2>
+                            <h3 class="mb-3 text-gray-500">IOT Domain (Team Lead)</h3>
+                        </div>
+                    </div>
+                </div>
+                <div class="p-4 lg:w-1/2">
+                    <div
+                        class="flex flex-col items-center justify-center h-full text-center sm:flex-row sm:justify-start sm:text-left">
+                        <img alt="team" class="flex-shrink-0 object-cover object-center w-48 h-48 mb-4 rounded-lg sm:mb-0"
+                            src="./assets/surya.jpg">
+                        <div class="flex-grow sm:pl-8">
+                            <h2 class="text-lg font-medium text-gray-900 title-font">SAI SURYA RALI</h2>
+                            <h3 class="mb-3 text-gray-500">IOT Domain</h3>
+                        </div>
+                    </div>
+                </div>
+                <div class="p-4 lg:w-1/2">
+                    <div
+                        class="flex flex-col items-center justify-center h-full text-center sm:flex-row sm:justify-start sm:text-left">
+                        <img alt="team" class="flex-shrink-0 object-cover object-center w-48 h-48 mb-4 rounded-lg sm:mb-0"
+                            src="./assets/stuti.jpg">
+                        <div class="flex-grow sm:pl-8">
+                            <h2 class="text-lg font-medium text-gray-900 title-font">STUTI JAIN</h2>
+                            <h3 class="mb-3 text-gray-500">Media Domain</h3>
+                        </div>
+                    </div>
+                </div>
+                <div class="p-4 lg:w-1/2">
+                    <div
+                        class="flex flex-col items-center justify-center h-full text-center sm:flex-row sm:justify-start sm:text-left">
+                        <img alt="team" class="flex-shrink-0 object-cover object-center w-48 h-48 mb-4 rounded-lg sm:mb-0"
+                            src="./assets/abhinav.jpeg">
+                        <div class="flex-grow sm:pl-8">
+                            <h2 class="text-lg font-medium text-gray-900 title-font">ABHINAV</h2>
+                            <h3 class="mb-3 text-gray-500">Web Dev Domain</h3>
+                        </div>
+                    </div>
+                </div>
+                <div class="p-4 lg:w-1/2">
+                    <div
+                        class="flex flex-col items-center justify-center h-full text-center sm:flex-row sm:justify-start sm:text-left">
+                        <img alt="team" class="flex-shrink-0 object-cover object-center w-48 h-48 mb-4 rounded-lg sm:mb-0"
+                            src="./assets/sandeepan.jpeg">
+                        <div class="flex-grow sm:pl-8">
+                            <h2 class="text-lg font-medium text-gray-900 title-font">SANDEEPAN DAS</h2>
+                            <h3 class="mb-3 text-gray-500">App Dev Domain</h3>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</body>
+</html>
