@@ -1,1 +1,23 @@
-{}
+{
+  "name": "arduino-sanitizer-dispenser",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/sai-surya-rali/Arduino-Sanitizer-Dispenser.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/sai-surya-rali/Arduino-Sanitizer-Dispenser/issues"
+  },
+  "homepage": "https://github.com/sai-surya-rali/Arduino-Sanitizer-Dispenser#readme",
+  "description": "",
+  "dependencies": {
+    "express": "^4.17.1"
+  }
+}
