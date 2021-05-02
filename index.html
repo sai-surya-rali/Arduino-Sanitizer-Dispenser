@@ -8,38 +8,6 @@
     <link rel="icon" href="https://firebasestorage.googleapis.com/v0/b/touchless-sanitizer.appspot.com/o/Sanitizer-symbol.png?alt=media&token=2831c196-e257-46b7-b0c3-08eea10a9d8a" type="image/icon type">
     <link rel="stylesheet" href="./tailwind.css">
     <link href="https://cdn.jsdelivr.net/npm/tailwindcss/dist/tailwind.min.css" rel="stylesheet"> 
-
-		<style>
-			.carousel-open:checked + .carousel-item {
-				position: static;
-				opacity: 100;
-			}
-			.carousel-item {
-				-webkit-transition: opacity 0.6s ease-out;
-				transition: opacity 0.6s ease-out;
-			}
-			#carousel-1:checked ~ .control-1,
-			#carousel-2:checked ~ .control-2,
-			#carousel-3:checked ~ .control-3 {
-				display: block;
-			}
-			.carousel-indicators {
-				list-style: none;
-				margin: 0;
-				padding: 0;
-				position: absolute;
-				bottom: 2%;
-				left: 0;
-				right: 0;
-				text-align: center;
-				z-index: 10;
-			}
-			#carousel-1:checked ~ .control-1 ~ .carousel-indicators li:nth-child(1) .carousel-bullet,
-			#carousel-2:checked ~ .control-2 ~ .carousel-indicators li:nth-child(2) .carousel-bullet,
-			#carousel-3:checked ~ .control-3 ~ .carousel-indicators li:nth-child(3) .carousel-bullet {
-				color: #2b6cb0;  /*Set to match the Tailwind colour you want the active one to be */
-			}
-		</style>
 </head>
 <body>
     <header class="text-gray-600 body-font">
@@ -52,49 +20,25 @@
                 class="flex flex-wrap items-center justify-center text-base md:mr-auto md:ml-4 md:py-1 md:pl-4 md:border-l md:border-gray-400">
             </nav>
            <a href="https://github.com/sai-surya-rali/Arduino-Sanitizer-Dispenser"><button
-                class="inline-flex items-center px-3 py-1 mt-4 text-base bg-gray-100 border-0 rounded focus:outline-none hover:bg-gray-200 md:mt-0">Github Repo 
+                class="inline-flex items-center px-3 py-1 mt-4 text-base bg-gray-100 border-0 rounded focus:outline-none hover:bg-gray-200 md:mt-0"> Github Repo 
             </button></a>
             
         </div>
     </header>
-    <div class="relative bg-white shadow-2xl carousel">
-        <div class="relative w-full overflow-hidden carousel-inner">
-          <!--Slide 1-->
-            <input class="carousel-open" type="radio" id="carousel-1" name="carousel" aria-hidden="true" hidden="" checked="checked">
-            <div class="absolute opacity-0 carousel-item" style="height: 500px;;">
-                <img src="https://firebasestorage.googleapis.com/v0/b/touchless-sanitizer.appspot.com/o/2.jpeg?alt=media&token=3dafb78a-ced5-4fe1-90f1-4677e2c8e67f" style="width:100%">
-            </div>
-            <label for="carousel-3" class="absolute inset-y-0 left-0 z-10 hidden w-10 h-10 my-auto ml-2 text-3xl font-bold leading-tight text-center text-black bg-white rounded-full cursor-pointer prev control-1 md:ml-10 hover:text-white hover:bg-blue-700">‹</label>
-            <label for="carousel-2" class="absolute inset-y-0 right-0 z-10 hidden w-10 h-10 my-auto mr-2 text-3xl font-bold leading-tight text-center text-black bg-white rounded-full cursor-pointer next control-1 md:mr-10 hover:text-white hover:bg-blue-700">›</label>
-            
-            <!--Slide 2-->
-            <input class="carousel-open" type="radio" id="carousel-2" name="carousel" aria-hidden="true" hidden="">
-            <div class="absolute opacity-0 carousel-item" style="height: 500px;;">
-                <img src="https://firebasestorage.googleapis.com/v0/b/touchless-sanitizer.appspot.com/o/Gear.jpg?alt=media&token=73319aed-38ab-4997-8daf-720d5c580d3b" style="width:100%">
-            </div>
-            <label for="carousel-1" class="absolute inset-y-0 left-0 z-10 hidden w-10 h-10 my-auto ml-2 text-3xl font-bold leading-tight text-center text-black bg-white rounded-full cursor-pointer prev control-2 md:ml-10 hover:text-white hover:bg-blue-700">‹</label>
-            <label for="carousel-3" class="absolute inset-y-0 right-0 z-10 hidden w-10 h-10 my-auto mr-2 text-3xl font-bold leading-tight text-center text-black bg-white rounded-full cursor-pointer next control-2 md:mr-10 hover:text-white hover:bg-blue-700">›</label> 
-            
-            <!-- Add additional indicators for each slide-->
-            <ol class="carousel-indicators">
-                <li class="inline-block mr-3">
-                    <label for="carousel-1" class="block text-4xl text-white cursor-pointer carousel-bullet hover:text-blue-700">•</label>
-                </li>
-                <li class="inline-block mr-3">
-                    <label for="carousel-2" class="block text-4xl text-white cursor-pointer carousel-bullet hover:text-blue-700">•</label>
-                </li>
-
-            </ol>
-            
+    <section class="text-gray-600 body-font">
+        <div class="container mx-auto flex px-5 py-24 items-center justify-center flex-col">
+            <img class="lg:w-3/6 md:w-4/6 w-5/6 mb-10 object-cover object-center rounded" alt="hero"
+                src="https://firebasestorage.googleapis.com/v0/b/touchless-sanitizer.appspot.com/o/2.jpeg?alt=media&token=3dafb78a-ced5-4fe1-90f1-4677e2c8e67f">
         </div>
-    </div>
+    </section>
+    
     <section class="text-gray-600 body-font">
         <div class="container px-5 py-24 mx-auto">
             <div class="flex flex-wrap -m-4">
                 <div class="p-4 lg:w-1/2">
                     <div
                         class="relative h-full px-8 pt-16 pb-24 overflow-hidden text-center bg-gray-100 bg-opacity-75 rounded-lg ">
-                        <h1 class="mb-3 text-xl font-medium text-gray-900 title-font sm:text-4xl">PROBLEM STATEMENT</h1>
+                        <h1 class="mb-3 text-xl font-bold text-gray-900 title-font sm:text-4xl font-mono ">PROBLEM STATEMENT</h1>
                         <br>
                         <p class="mb-3 text-2xl font-medium leading-relaxed">Touchless Automatic Hand Sanitizer Dispenser using:</p>
 <br> 
@@ -117,7 +61,7 @@
                 </div>
                 <div class="p-4 lg:w-1/2">
                     <div class="relative h-full px-8 pt-16 pb-24 overflow-hidden text-center bg-gray-100 bg-opacity-75 rounded-lg">
-                        <h1 class="mb-3 text-xl font-medium text-gray-900 title-font sm:text-4xl">OBJECTIVE</h1>
+                        <h1 class="mb-3 text-xl font-bold text-gray-900 title-font sm:text-4xl font-mono ">Objective</h1>
                         <p class="mb-3 text-xl font-semibold leading-relaxed">Since the outbreak of COVID-19 hits the world dramatically, the use of hand sanitizers have escalated. Hand sanitisers can protect against disease-causing microbes.The main cause of COVID-19 spread is when virus-laden droplets from infected person get inhaled by other people. Recent studies show that we can also get this virus by touching surfaces or objects contaminated by the infected person and after that touching your face and nose can easily make you a target of it.This gives us a motivation to make a touchless automatic sanitizer dispenser.
                         </p>
                         </a>
